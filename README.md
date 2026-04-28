@@ -27,8 +27,8 @@ No estado atual do projeto, ja existe:
 - carregamento do JavaScript principal via `type="module"`
 - inicializacao da aplicacao em `main.js`
 - modulo separado para iniciar o jogo em `game.js`
-- funcao para criar a lista inicial de celulas em `utils.js`
-- funcao para distribuir bombas aleatoriamente nas celulas criadas em `utils.js`
+- funcao para criar a lista inicial de celulas em `board.js`
+- funcao para distribuir bombas aleatoriamente nas celulas criadas em `board.js`
 - renderizacao inicial do tabuleiro no DOM com base no tamanho selecionado
 - criacao de botoes para cada celula com `data-row` e `data-col`
 
@@ -51,7 +51,7 @@ Hoje o projeto ja monta a grade visual do tabuleiro na tela e gera as celulas co
     |-- js
     |   |-- main.js
     |   |-- game.js
-    |   `-- utils.js
+    |   `-- board.js
     `-- styles
         `-- styles.css
 ```

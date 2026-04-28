@@ -1,4 +1,4 @@
-import { createBoardCells } from './utils.js'
+import { createBoardCells } from './board.js'
 
 
 function InicializeGame() {
@@ -17,7 +17,7 @@ function InicializeGame() {
     board.appendChild(cellElement);
   })
 
-  console.log(matrix)
+  
 }
 
 export { InicializeGame }
