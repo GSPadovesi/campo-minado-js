@@ -22,10 +22,10 @@ function countBombs(cells, size) {
     if (cell.isBomb) return cell;
 
     let count = 0;
-    for (let i = -1; i <= 1; i++) {
-      for (let j = -1; j <= 1; j++) {
-        if (i === 0 && j === 0) continue;
-        const neighbor = cellMap.get(`${cell.row + i},${cell.col + j}`);
+    for (let row = -1; row <= 1; row++) {
+      for (let col = -1; col <= 1; col++) {
+        if (row === 0 && col === 0) continue;
+        const neighbor = cellMap.get(`${cell.row + row},${cell.col + col}`);
         if (neighbor?.isBomb) count++;
       }
     }
