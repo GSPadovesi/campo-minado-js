@@ -15,7 +15,7 @@ function placeBombs(cells){
 }
 
 
-function countBombs(cells, size) {
+function countBombs(cells) {
   const cellMap = new Map(cells.map(c => [`${c.row},${c.col}`, c]));
 
   return cells.map(cell => {

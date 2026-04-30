@@ -5,8 +5,8 @@ export const configsGame = {
 };
 
 export const lifesGame = {
-  easy: 6,
-  medium: 4,
+  easy: 4,
+  medium: 3,
   hard: 2
 }
 

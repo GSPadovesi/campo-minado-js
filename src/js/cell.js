@@ -35,7 +35,7 @@ function GetNeighborCells(cell, cells) {
 
       const neighbor = cellMap.get(`${cell.row + row},${cell.col + col}`);
 
-      if(!neighbor || neighbor.isBomb) continue;
+      if(!neighbor ||neighbor.isBomb) continue;
 
       if (neighbor) {
         neighbors.push(neighbor);
