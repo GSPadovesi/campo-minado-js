@@ -12,13 +12,38 @@
   <link rel="stylesheet" href="./src/styles/styles.css">
 </head>
 <body>
-  <main id="main">
-    <section id="section">
-      <select id="size" name="size">
-        <option value="6">6x6</option>
-        <option value="8">8x8</option>
-      </select>
-      <div id="board"></div>
+  <main id="main" class="main">
+    <section id="section" class="section">
+      <div id="loading" class="loading"></div>
+      <div id="menu" class="menu">
+        <img src="./src/assets/bombear.png" alt="Bomba" class="menu-bomb">
+        <div class="menu-heading">
+          <div class="menu-title">
+            <h2 class="menu-title-text">Campo</h2>
+            <h2 class="menu-title-text menu-title-text-accent">Minado</h2>
+          </div>
+          <p class="menu-description">Encontre todas as bombas e limpe o campo!</p>
+        </div>
+        <div class="difficulty-panel">
+          <h4 class="difficulty-title">Dificuldade</h4>
+          <div class="difficulty-options">
+            <button class="difficulty-button selected" data-difficulty="easy">
+              <span class="difficulty-name">Fácil</span>
+              <span class="difficulty-meta">6x6 - 5 Bombas</span>
+            </button>
+            <button class="difficulty-button" data-difficulty="medium">
+              <span class="difficulty-name">Médio</span>
+              <span class="difficulty-meta">10x10 - 15 Bombas</span>
+            </button>
+            <button class="difficulty-button" data-difficulty="hard">
+              <span class="difficulty-name">Difícil</span>
+              <span class="difficulty-meta">14x14 - 29 Bombas</span>
+            </button>
+          </div>
+        </div>
+        <button id="start-button" class="start-button">Iniciar Jogo</button>
+      </div>
+      <div id="board" class="board"></div>
     </section>
   </main>
   <script type="module" src="./src/js/main.js"></script>

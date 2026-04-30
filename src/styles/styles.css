@@ -17,17 +17,19 @@ body {
   background-color: #212121;
 }
 
-#main {
+.main {
   width: 100%;
   height: 100dvh;
   overflow: hidden;
   padding: 64px 0;
 }
 
-#section{
+.section {
   width: 100%;
   height: 100%;
-  max-width: 750px;
+  max-width: 550px;
+  position: relative;
+  overflow: hidden;
   border-radius: 12px;
   margin: 0 auto;
   display: flex;
@@ -36,7 +38,124 @@ body {
   background-color: #0c151f;
 }
 
-#board{
+.menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.menu-bomb {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.menu-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.menu-title {
+  display: flex;
+  gap: 6px;
+}
+
+.menu-title-text {
+  margin: 0;
+  font-size: 48px;
+  color: #fff;
+}
+
+.menu-title-text-accent {
+  color: #f3bd38;
+}
+
+.menu-description {
+  margin: 0;
+  font-size: 18px;
+  color: gray;
+  text-align: center;
+  font-weight: 800;
+}
+
+.difficulty-panel {
+  width: 100%;
+  background-color: #0d1511;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.difficulty-title {
+  margin: 0;
+  font-size: 20px;
+  color: grey;
+}
+
+.difficulty-options {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.difficulty-button {
+  width: 100%;
+  height: 80px;
+  background: #536073;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.difficulty-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.difficulty-meta {
+  margin: 0;
+  font-size: 14px;
+  color: #c0c0c0;
+  font-weight: 400;
+}
+
+.difficulty-button:hover {
+  filter: brightness(1.05);
+}
+
+.difficulty-button.selected {
+  background-color: #387e47;
+}
+
+.start-button {
+  width: 100%;
+  height: 60px;
+  background: #f3bd38;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #000;
+  position: relative;
+}
+
+.board {
   width: min(100%, 100dvw);
   height: auto;
   max-width: 100%;
@@ -48,12 +167,12 @@ body {
   overflow: hidden;
   border-radius: 12px;
   background-color: #1d2631;
-  display: grid;
   gap: 4px;
   padding: 16px;
+  display: none;
 }
 
-#button{
+.cell-button {
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, #7d90aa 0%, #5a6b82 48%, #415063 100%);
@@ -61,28 +180,56 @@ body {
   border-radius: 8px;
   cursor: pointer;
   position: relative;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -2px 0 rgba(22, 28, 36, 0.75),
-    0 6px 0 #253140,
-    0 10px 18px rgba(0, 0, 0, 0.28);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
-
-#button:hover{
+.cell-button:hover {
   filter: brightness(1.05);
 }
 
-#button.revealed{
+.cell-button.revealed {
   transform: translateY(4px);
-  border-style: inset;       
+  border-style: inset;
   background-color: #fff;
-  padding-left: 5px;        
+  padding-left: 5px;
   padding-top: 5px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1px 0 rgba(22, 28, 36, 0.65),
-    0 2px 0 #253140,
-    0 5px 10px rgba(0, 0, 0, 0.22);
+
+}
+
+.cell-button.bomb {
+  background-color: #f44336;
+  color: #fff;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+.loading {
+  display: none;
+}
+
+.loading.start {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  z-index: 20;
+}
+
+.loading.start::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f3bd38;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
