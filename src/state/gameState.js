@@ -1,12 +1,23 @@
 export const configsGame = {
-  easy: { size: 6, lifes: 6 },
-  medium: { size: 10, lifes: 4 },
-  hard: { size: 14, lifes: 2 }
+  easy: { size: 6 },
+  medium: { size: 10 },
+  hard: { size: 14 }
+};
+
+export const lifesGame = {
+  easy: 6,
+  medium: 4,
+  hard: 2
+}
+
+export const initialGameState = {
+  initialized: false,
+  difficulty: "easy",
+  config: { ...configsGame.easy },
+  lifes: lifesGame.easy,
+  board: []
 };
 
 export const gameState = {
-  initialized: false,
-  difficulty: 'easy',
-  config: configsGame.easy,
-  board: []
+  ...initialGameState
 };
